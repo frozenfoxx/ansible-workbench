@@ -3,6 +3,6 @@ all:
   hosts:
     localhost:
 
-workbenches:
+workbench:
   hosts:
     localhost:

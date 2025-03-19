@@ -1,0 +1,30 @@
+---
+- name: Check if Homebrew is installed
+  ansible.builtin.command: "/usr/bin/which -s brew"
+  register: brew_check
+  changed_when: false
+  failed_when: false
+  tags:
+    - workbench
+
+- name: Installing Homebrew
+  ansible.builtin.command: "/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  when: brew_check.rc == 0
+  tags:
+    - workbench
+
+- name: Install packages using Homebrew
+  community.general.homebrew:
+    name: "{{ item }}"
+    state: present
+  when: brew_check.rc != 0
+  with_items: "{{ workbench_darwin_packages }}"
+  tags:
+    - workbench
+
+#- name: Install roles
+#  hosts:
+#    - localhost
+#  become: true
+#  roles:
+#    - frozenfoxx.task

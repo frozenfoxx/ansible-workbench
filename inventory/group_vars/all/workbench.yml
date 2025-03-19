@@ -1,0 +1,9 @@
+---
+workbench_darwin_packages:
+  - tmux
+  - wget
+  - yq
+workbench_linux_packages:
+  - tmux
+  - wget
+  - yq

@@ -1,0 +1,15 @@
+---
+- name: Install packages using apt
+  ansible.builtin.apt:
+    name: "{{ item }}"
+    state: present
+  with_items: "{{ workbench_linux_packages }}"
+  tags:
+    - workbench
+
+#- name: Install roles
+#  hosts:
+#    - localhost
+#  become: true
+#  roles:
+#    - frozenfoxx.task

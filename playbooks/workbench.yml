@@ -1,0 +1,13 @@
+---
+- name: Handle installation for Linux
+  ansible.builtin.import_tasks: workbench_linux.yml
+  when: ansible_facts['os_system']|lower == 'linux'
+  tags:
+    - workbench
+
+- name: Handle installation for macOS
+  ansible.builtin.import_tasks: workbench_darwin.yml
+  when: ansible_facts['os_system']|lower == 'darwin'
+  tags:
+    - workbench
+
