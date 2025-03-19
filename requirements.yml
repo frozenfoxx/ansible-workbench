@@ -1,0 +1,15 @@
+---
+collections:
+  - name: ansible.posix
+  - name: community.crypto
+  - name: community.general
+
+roles:
+  - name: andrewrothstein.k9s
+  - name: frozenfoxx.ctop
+    src: https://github.com/frozenfoxx/ansible-role-ctop
+    version: main
+  - name: frozenfoxx.task
+    src: https://github.com/frozenfoxx/ansible-role-task
+    version: main
+  - name: stefangweichinger.ansible_rclone

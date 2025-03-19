@@ -1,0 +1,8 @@
+---
+all:
+  hosts:
+    localhost:
+
+workbenches:
+  hosts:
+    localhost:
